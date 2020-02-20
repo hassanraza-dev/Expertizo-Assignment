@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            background-image: url(./images/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .box {
+            margin: 0 auto;
+            padding: 20px;
+            width: 200px;
+            height: 400px;
+            border: 0px solid black;
+            box-shadow: 1px 1px 20px white;
+            transition: 0.5s;
+
+
+
+        }
+
+        .red {
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: black;
+            transition: 0.5s;
+
+        }
+
+        .yellow {
+            margin: 0 auto;
+            width: 100px;
+            margin-top: 10px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: black;
+            transition: 0.5s;
+        }
+
+        .green {
+            margin: 0 auto;
+            width: 100px;
+            margin-top: 10px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: black;
+            transition: 0.5s;
+        }
+
+        button {
+            width: 100px;
+            height: auto;
+            margin: 0px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            border-radius: 30px;
+            opacity: 0.8;
+            background-color: black;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        h1 {
+            size: 30px;
+            margin: 0px;
+        }
+    </style>
+    <div class="dropdown" style=" float:right;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="width: 200px;">
+            Change Background
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="javascript:void(0)" onclick="deft()">Default</a>
+            <a class="dropdown-item" href="javascript:void(0)" onclick="BG1()">Background-01</a>
+            <a class="dropdown-item" href="javascript:void(0)" onclick="BG2()">Background-02</a>
+            <a class="dropdown-item" href="javascript:void(0)" onclick="BG3()">Background-03</a>
+        </div>
+    </div>
+    <a href="./index.html" style="text-decoration: none;"><button>
+            <h1>&LeftArrow;</h1>
+        </button></a>
+
+    <div class="box" id="box">
+        <div class="red" id="redjs">
+
+        </div>
+        <div class="yellow" id="yellowjs">
+
+        </div>
+        <div class="green" id="greenjs">
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="controler">
+        <center>
+
+            <button onclick="stop()" id="stop">STOP</button>
+            <button onclick="ready()" id="yellow">READY</button>
+            <button onclick="go()" id="green">GO</button>
+        </center>
+    </div>
+    <script>
+        function stop() {
+            document.getElementById("redjs").style.backgroundColor = "red"
+            document.getElementById("yellowjs").style.backgroundColor = "black"
+            document.getElementById("greenjs").style.backgroundColor = "black"
+            document.getElementById("yellowjs").style.boxShadow = "none"
+            document.getElementById("greenjs").style.boxShadow = "none"
+            document.getElementById("redjs").style.boxShadow = "0px 0px 100px red"
+            document.getElementById("green").disabled = true;
+        }
+        function ready() {
+            document.getElementById("yellowjs").style.backgroundColor = "yellow"
+            document.getElementById("greenjs").style.backgroundColor = "black"
+            document.getElementById("redjs").style.backgroundColor = "black"
+            document.getElementById("redjs").style.boxShadow = "none"
+            document.getElementById("greenjs").style.boxShadow = "none"
+            document.getElementById("yellowjs").style.boxShadow = "0px 0px 100px yellow"
+            document.getElementById("green").disabled = false;
+        }
+        function go() {
+            document.getElementById("greenjs").style.backgroundColor = "green"
+            document.getElementById("redjs").style.backgroundColor = "black"
+            document.getElementById("yellowjs").style.backgroundColor = "black"
+            document.getElementById("redjs").style.boxShadow = "none"
+            document.getElementById("yellowjs").style.boxShadow = "none"
+            document.getElementById("greenjs").style.boxShadow = "0px 0px 100px green"
+        }
+
+        function BG1() {
+            bg = "url(./images/bg2.jpg)";
+            var x = document.getElementsByTagName("body")[0];
+            x.style.backgroundImage = bg;
+        }
+        function BG2() {
+            bg = "url(./images/bg4.jpg)";
+            var x = document.getElementsByTagName("body")[0];
+            x.style.backgroundImage = bg;
+        }
+        function BG3() {
+            bg = "url(./images/bg5.jpg)";
+            var x = document.getElementsByTagName("body")[0];
+            x.style.backgroundImage = bg;
+        }
+        function deft() {
+            bg = "url(./images/bg.jpg)";
+            var x = document.getElementsByTagName("body")[0];
+            x.style.backgroundImage = bg;
+        }
+
+
+    </script>
+</body>
+
+</html>
